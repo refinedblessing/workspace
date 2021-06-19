@@ -1,7 +1,22 @@
 import React from 'react';
-import Workspaces from './Workspaces';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
 
-const App = () => <Workspaces/>
+import Workspaces from './Workspaces';
+import Workspace from './Workspace'
+
+
+const App = () => (
+  <Router>
+    <Switch>
+      <Route path='/workspaces/:workspaceId' component={Workspace} />
+      <Route path='/' component={Workspaces} />
+      <Route path='/workspaces' component={Workspaces} />
+    </Switch>
+  </Router>
+)
 
 export default App;
