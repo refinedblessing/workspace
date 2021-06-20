@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Editor from '@monaco-editor/react';
-import axios from './utils/axiosUtils';
+import axios from '../../utils/axiosUtils';
 // import { Link } from 'react-router-dom';
 
 const Workspace = ({match: {params: {workspaceId}}}) => {
