@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import axios from '../../utils/axiosUtils';
 import { Link } from 'react-router-dom';
+
+import axios from '../../utils/axiosUtils';
 
 import './Workspaces.scss';
 
@@ -23,8 +24,8 @@ const Workspaces = () => {
     'SCSS',
     'TypeScript',
     'XML',
-  ].map((lang, i) => (
-    <option key={i} value={lang}>
+  ].map((lang) => (
+    <option key={lang} value={lang}>
       {lang}
     </option>
   ));
@@ -32,7 +33,7 @@ const Workspaces = () => {
   useEffect(() => {
     axios
       .get('workspaces')
-      .then(res => setWorkspaces(res.data.workspaces))
+      .then((res) => setWorkspaces(res.data.workspaces))
       .catch(console.error);
   }, []);
 
@@ -52,7 +53,7 @@ const Workspaces = () => {
             <div className="row">
               <div className="mb-3 col-6">
                 <input
-                  onChange={e => setName(e.target.value)}
+                  onChange={(e) => setName(e.target.value)}
                   className="form-control"
                   value={name}
                   type="text"
@@ -63,7 +64,7 @@ const Workspaces = () => {
                 <select
                   className="form-select"
                   aria-label="Workspace Language"
-                  onChange={e => setLanguage(e.target.value)}
+                  onChange={(e) => setLanguage(e.target.value)}
                   value={language}
                 >
                   <option defaultValue>Select Workspace Language</option>
@@ -81,7 +82,7 @@ const Workspaces = () => {
           <header className="d-flex justify-content-between align-items-center">
             <h3>Available Workspaces</h3>
             <select
-              onChange={e => setSortBy(e.target.value)}
+              onChange={(e) => setSortBy(e.target.value)}
               className="form-select"
               aria-label="Sort workspace list"
               value={sortBy}
@@ -100,14 +101,14 @@ const Workspaces = () => {
                 }
                 return workspaceA[sortBy] > workspaceB[sortBy] ? 1 : -1;
               })
-              .map(({ id, name, language, updated_at }) => (
+              .map((w) => (
                 <li
                   className="list-group-item d-flex justify-content-between align-items-center"
-                  key={id}
+                  key={w.id}
                 >
-                  <Link to={`/workspaces/${id}`}>{name}</Link>
+                  <Link to={`/workspaces/${w.id}`}>{w.name}</Link>
                   <span className="badge bg-primary rounded-pill">
-                    {language}
+                    {w.language}
                   </span>
                 </li>
               ))}

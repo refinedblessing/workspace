@@ -1,0 +1,15 @@
+.workspace {
+  .btn {
+    font-weight: bold;
+  }
+
+  .save-btn {
+    background-color: #1E1E1E;
+    transition: background-color 0.5s;
+    color: white;
+  }
+
+  .save-btn:hover {
+    background-color: black;
+  }
+}
