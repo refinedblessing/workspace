@@ -1,9 +1,49 @@
 .workspaces {
-  .form-container {
-    max-width: 500px;
+  margin-top: 40px;
+  width: 80%;
+  max-width: 700px;
+
+  h1 {
+    text-align: center;
+    font-weight: bold;
   }
 
   section {
-    margin-bottom: 20px;
+    margin: 20px 0;
+  }
+
+  .form-control:focus,
+  .form-select:focus {
+    box-shadow: none;
+    border: 1px solid;
+  }
+
+  button {
+    font-weight: bold;
+  }
+
+  button:hover {
+    background-color: blue;
+  }
+
+  .list-group-item {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .workplace-list {
+    padding-top: 20px;
+    border-top: .5px dashed;
+
+    header {
+      margin-bottom: 20px;
+    }
+    h3 {
+      margin-bottom: 0;
+    }
+
+    select {
+      width: 200px;
+    }
   }
 }
